@@ -105,3 +105,8 @@ Note: Each asset entry for comparison has two required elements and a third opti
 - If you need any support in properly formatting your Action Script file, please connect with us on the [official MintedWithLovelace Discord server](https://discord.gg/HzKvRWPqy5).
 
 
+## Notices
+
+Copyright 2022 - MadeWithLovelace - All Rights Reserved
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
