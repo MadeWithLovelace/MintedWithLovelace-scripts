@@ -99,6 +99,7 @@ Note: Each asset entry for comparison has two required elements and a third opti
 
 ## Final Notes
 
+- Example ActionScript (format example using non-demo data)/Template: [Minted ActionScripts Template/Example File](https://github.com/MadeWithLovelace/MintedWithLovelace-scripts/blob/main/sampleActionScript.csv)
 - After your CSV file is prepared, you may import it during the configuration or reconfig of a compaign.
 - Your imported Action Script is processed directly after processing any whitelist or blacklist which may be configured for your campaign. 
 - If you need any support in properly formatting your Action Script file, please connect with us on the [official MintedWithLovelace Discord server](https://discord.gg/HzKvRWPqy5).
