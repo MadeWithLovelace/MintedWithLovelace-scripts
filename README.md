@@ -21,21 +21,16 @@ Following are details on the structure, syntax, and formatting of an Action Scri
 **Purpose:** This indicates what sender address or stake key will invoke a particular script filter/action line entry.
 
 **Data Types/Structure:** 
-  - "any"
-  
-  ...> Apply to any payer
-    
-  - "addr..."
-  
-  ...> Apply to all addresses associated with this payer's stake-key
-    
-  - "1_addr..."
-  
-  ...> Apply to just *this* payer's inbound address, not other stake-key associated wallet addresses.
+- `"any"` : Apply to any payer    
+- `"addr..."` : Apply to all addresses associated with this payer's stake-key    
+- `"1_addr..."` : Apply to just *this* payer's inbound address, not other stake-key associated wallet addresses.
 
-**Syntax Single Entry:** Example apply to any: "any"; Example apply to just address ABC: "1_addrABC"
+**Syntax Single Entry:**
+- Example: "apply to any" = `"any"`
+- Example: "apply to just address ABC" = `"1_addrABC"`
 
-**Syntax Multi-Entry:** Apply to address ABC and wallet associated with DEF and GHI: "1_addrABC|addrDEF|addrGHI"
+**Syntax Multi-Entry:**
+- Example: "apply to address ABC and wallet associated with DEF and GHI" = `"1_addrABC|addrDEF|addrGHI"`
 
 
 ### "trigger"
@@ -44,31 +39,29 @@ Following are details on the structure, syntax, and formatting of an Action Scri
 
 **Data Types/Structure:**
 
-  - Each entry for comparison has two required elements and a third optional
-    1. Item Location - "own"
+Note: Each asset entry for comparison has two required elements and a third optional. In the string entry these are separated with a pipe ("|"), and these are each as follows.
 
-    ...NOTE ~ Presently this is the only supported option, "tx" will be available soon which indicates to look at any asset included in the incoming payment.
-    
-    2. Item ID - PolicyID/PolicyIDAssetHexName
-    
-    ...NOTE ~ Can be either a Policy ID or a concatenated Policy ID + Hex Name, e.g. policy 7c76fc6c7496acb811ca913b3f9f1a3e4a875d7d1f1b11b9676840ce + hex name 4a554445 concatenate as 7c76fc6c7496acb811ca913b3f9f1a3e4a875d7d1f1b11b9676840ce4a554445
-    
-    3. Item Comparison + Qty *Optional* - A comparison symbol concatenated with the quantity to evaluate for
-    
-    ...NOTE ~ Supported comparisons: >, <, >=, <=, ==; Quantity to evaluate for should be concatenated with the compairson symbols (no spaces), e.g. <=100
-    
-    ...* Optional - if ommitted: do not include a trailing pipe and the evaluation is "any qty"
-    
+1. Location of PolicyID/Asset
+* `"own"` : Asset(s) Owned by Address or Wallet (stake key)
+* `"tx"` : Asset(s) Included in Payment *coming soon*
+
+2. PolicyID/Asset
+* `"policyID..."` : Just the policy ID, which considers all/any asset owned with the matching policy
+* `"policyIDAssetHex"` : Concatenated policy ID + the asset hex name, e.g. policy 7c76fc6c7496acb811ca913b3f9f1a3e4a875d7d1f1b11b9676840ce + hex name 4a554445 concatenate as 7c76fc6c7496acb811ca913b3f9f1a3e4a875d7d1f1b11b9676840ce4a554445
+  
+3. Comparison + Quantity *Optional*
+* `"ComparisonQuantity"` : Comparison can be ">", "<", ">=", "<=", or "=="; Concatenated with quantity to compare for. e.g. "holds exactly 2" = "==2"
+* `""` : If ommitted, be sure there is no trailing pipe after the policy or asset entry - Comparison will be "any quantity" in this case.
+
 **Syntax Single Entry Examples:** If entering a single comparison rule, it's entered as a single with the appropriate pipes, see examples below.
-
-  - Example: "payer holds exactly 3 of any asset with policy ID ABC" = "own|policyID_ABC|==3"
-  - Example: "payer holds any qty of asset with policy ID ABC" = "own|policyID_ABC"
-  - Example: "payer holds at least 5 of asset with policy ID ABC and hex name 123" = "own|policyID_ABChexName123|>=5"
+- Example: "payer holds exactly 3 of any asset with policy ID ABC" = "own|policyID_ABC|==3"
+- Example: "payer holds any qty of asset with policy ID ABC" = "own|policyID_ABC"
+- Example: "payer holds at least 5 of asset with policy ID ABC and hex name 123" = "own|policyID_ABChexName123|>=5"
 
 **Syntax Multi-Entry Examples:** If applying more than 1 possible conditional rule, use the same formatting for each rule as above and separate these rules based on either applying "or" or "and" comparison logic as follows:
 
-  - Example: To evaluate for OR use "||", e.g. itemAlocation|itemApolicyID/asset|itemAcompareQty*||itemBlocation|itemBpolicyID/asset|itemBcompareQty*...etc
-  - Example: To evaluate for AND use "+", e.g. itemAlocation|itemApolicyID/asset|itemAcompareQty*+itemBlocation|itemBpolicyID/asset|itemBcompareQty*...etc
+- Example: To evaluate for OR use "||", e.g. itemAlocation|itemApolicyID/asset|itemAcompareQty*||itemBlocation|itemBpolicyID/asset|itemBcompareQty*...etc
+- Example: To evaluate for AND use "+", e.g. itemAlocation|itemApolicyID/asset|itemAcompareQty*+itemBlocation|itemBpolicyID/asset|itemBcompareQty*...etc
 
 
 ### filter_price
@@ -78,9 +71,8 @@ Following are details on the structure, syntax, and formatting of an Action Scri
 **Data Types/Structure:** Price in lovelace to apply for this rule (or blank to leave the default in tact)
 
 **Syntax Entry Examples:**
-
-  - Example: "apply a 5 ADA discount when default per-NFT price is 50 ADA" = "45000000"
-  - Example: "leave price per-NFT unchanged" = ""
+- Example: "apply a 5 ADA discount when default per-NFT price is 50 ADA" = "45000000"
+- Example: "leave price per-NFT unchanged" = ""
 
 
 ### filter_nft_per
@@ -90,9 +82,8 @@ Following are details on the structure, syntax, and formatting of an Action Scri
 **Data Types/Structure:** Number representing quantity of NFTs to allow in a single mint, to apply for this rule (or blank to leave the default in tact)
 
 **Syntax Entry Examples:**
-
-  - Example: "allow qualified payer to buy max of 8 NFTs per mint when default nft-per-tx is 5" = "8"
-  - Example: "leave nft-per-tx unchanged" = ""
+- Example: "allow qualified payer to buy max of 8 NFTs per mint when default nft-per-tx is 5" = "8"
+- Example: "leave nft-per-tx unchanged" = ""
 
 
 ### filter_nft_total
@@ -102,9 +93,8 @@ Following are details on the structure, syntax, and formatting of an Action Scri
 **Data Types/Structure:** Number representing quantity of NFTs to allow in total for the campaign, to apply for this rule (or blank to leave the default in tact)
 
 **Syntax Entry Examples:**
-
-  - Example: "allow qualified payer to buy a total of 20 NFTs" = "20"
-  - Example: "leave total-nfts-allowed unchanged" = ""
+- Example: "allow qualified payer to buy a total of 20 NFTs" = "20"
+- Example: "leave total-nfts-allowed unchanged" = ""
 
 
 ## Final Notes
