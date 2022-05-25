@@ -16,7 +16,7 @@ with each line acting as a "Rule" which will alter one or more of 3 things for a
 
 Following are details on the structure, syntax, and formatting of an Action Script for use with the Minted DApp. Each column is listed with the acceptible or expected data structure. 
 
-#### "apply_to"
+### "apply_to"
 
 **Purpose:** This indicates what sender address or stake key will invoke a particular script filter/action line entry.
 
@@ -38,7 +38,7 @@ Following are details on the structure, syntax, and formatting of an Action Scri
 **Syntax Multi-Entry:** Apply to address ABC and wallet associated with DEF and GHI: "1_addrABC|addrDEF|addrGHI"
 
 
-#### "trigger"
+### "trigger"
 
 **Purpose:** This is the rule or trigger which will activate the filter(s) for this line entry.
 
@@ -71,7 +71,7 @@ Following are details on the structure, syntax, and formatting of an Action Scri
   - Example: To evaluate for AND use "+", e.g. itemAlocation|itemApolicyID/asset|itemAcompareQty*+itemBlocation|itemBpolicyID/asset|itemBcompareQty*...etc
 
 
-#### filter_price
+### filter_price
 
 **Purpose:** Apply a variant per-NFT price if the rules apply for this line entry.
 
@@ -83,7 +83,7 @@ Following are details on the structure, syntax, and formatting of an Action Scri
   - Example: "leave price per-NFT unchanged" = ""
 
 
-#### filter_nft_per
+### filter_nft_per
 
 **Purpose:** Apply a variant NFT-per-payment allowance if the rules apply for this line entry.
 
@@ -95,7 +95,7 @@ Following are details on the structure, syntax, and formatting of an Action Scri
   - Example: "leave nft-per-tx unchanged" = ""
 
 
-#### filter_nft_total
+### filter_nft_total
 
 **Purpose:** Apply a variant NFTs-Total allowance if the rules apply for this line entry.
 
