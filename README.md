@@ -23,14 +23,14 @@ Following are details on the structure, syntax, and formatting of an Action Scri
 **Data Types/Structure:** 
 - `"any"` : Apply to any payer    
 - `"addr..."` : Apply to all addresses associated with this payer's stake-key    
-- `"1_addr..."` : Apply to just *this* payer's inbound address, not other stake-key associated wallet addresses.
+- `"_addr..."` : Apply to just *this* payer's inbound address, not other stake-key associated wallet addresses.
 
 **Syntax Single Entry:**
 - Example: "apply to any" = `"any"`
-- Example: "apply to just address ABC" = `"1_addrABC"`
+- Example: "apply to just address ABC" = `"_addrABC"`
 
 **Syntax Multi-Entry:**
-- Example: "apply to address ABC and wallet associated with DEF and GHI" = `"1_addrABC|addrDEF|addrGHI"`
+- Example: "apply to address ABC and wallets associated with DEF and GHI" = `"_addrABC|addrDEF|addrGHI"`
 
 
 ### "trigger"
