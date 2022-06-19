@@ -43,7 +43,7 @@ Note: Each asset entry for comparison has two required elements and a third opti
 
 1. Location of PolicyID/Asset
 * `"own"` : Asset(s) Owned by Address or Wallet (stake key)
-* `"tx"` : Asset(s) Included in Payment *coming soon*
+* `"tx"` : Asset(s) Included in Payment *available as of RC2*
 
 2. PolicyID/Asset
 * `"policyID..."` : Just the policy ID, which considers all/any asset owned with the matching policy
